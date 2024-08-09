@@ -1,38 +1,1055 @@
-.App {
+/*Imported Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap');
+
+/*Imports*/
+
+* {
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+#sideNav {
+  display: flex;
+}
+
+.side-nav {
+  background-color: white;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  /* display: flex; */
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: fixed;
+  max-width: 280px;
+  height: 100vh;
+  width: 18%;
+}
+
+.side-nav-close {
+  display: none;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.side-nav-close button {
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+.side-nav-close button img {
+  height: 12px;
+  width: 12px;
+}
+
+.nav-logo {
+  margin-top: 20px;
+  width: 84%;
+}
+
+.nav-logo h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  margin: 0;
+  padding: 0;
+}
+
+.nav-routes {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 50px;
+  width: 84%;
+}
+
+.nav-routes h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 5px;
+  padding: 0;
+}
+
+.nav-routes button {
+  background-color: transparent;
+  border: none;
+  border-radius: 15px;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0;
+  margin: 5px 0;
+  outline: none;
+  text-align: left;
+  width: 100%;
+}
+
+.nav-routes button:hover {
+  opacity: 0.6;
+}
+
+.nav-routes button .btn-img {
+  /* background-color: white; */
+  border-radius: 40px;
+  /* box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.7); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 5px 0 10px;
+  height: 35px;
+  width: 35px;
+}
+
+.nav-routes button img {
+  height: 22px;
+  width: 22px;
+}
+
+.nav-sign-out {
+  position: absolute;
+  bottom: 20px;
+  width: 84%;
+}
+
+.nav-sign-out button {
+
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 15px 0;
+  outline: none;
+  text-align: left;
+  width: 100%;
+}
+
+.nav-sign-out button:hover {
+  opacity: 0.6;
+}
+
+.nav-sign-out button img {
+  margin: 0px 5px 0 10px;
+  height: 22px;
+  width: 22px;
+}
+
+.side-nav-menu {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 20px;
+}
+
+.side-nav-menu button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+.side-nav-menu button img {
+  height: 30px;
+  width: 30px;
+}
+
+@media only screen and (max-width: 850px) {
+  .side-nav-menu {
+    display: block;
+    top: 30px;
+    left: 20px;
+    z-index: 50;
+  }
+
+  #sideNav {
+    display: flex;
+  }
+
+  .side-nav-close {
+    display: block;
+  }
+
+  .side-nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: unset;
+    width: 90%;
+    z-index: 99;
+  }
+}
+
+
+.header {
+  background-color: white;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.header-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  width: 90%;
+}
+
+.head-loc {
+  left: 0;
+  position: absolute;
+}
+
+.head-left {
+  margin: 0 10px;
+}
+
+.head-left h3 {
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+.head-left p {
+  /* color: rgba(0, 0, 0, 0.5); */
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+.head-right {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+
+  height: 55px;
+  width: 55px;
+}
+
+.head-right h1 {
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  margin: -5px 0 0 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+}
+
+.title h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+.title p {
+  /* color: rgba(0, 0, 0, 0.5); */
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dasboard */
+.dashboard-wrap {
+  display: flex;
+  /* align-items: center;
+  justify-content: center; */
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 850px) and (min-width: 650px) {
+  .head-loc {
+    left: 20px;
+    position: absolute;
+  }
+
+  .title h1 {
+    font-size: 28px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .head-loc {
+    left: 20px;
+    position: absolute;
+    display: none;
+  }
+
+  .title h1 {
+    font-size: 28px;
+  }
+
+
+  .head-right {
+
+    height: 45px;
+    width: 45px;
+  }
+
+  .head-right h1 {
+    font-size: 24px;
+  }
+
+  .head-left h3 {
+    font-size: 16px;
+  }
+
+  .head-left p {
+    font-size: 12px;
+  }
+}
+
+/* Dasboard */
+
+/* Sign In */
+.sign-in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.sign-in-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.signIn-title {
+  margin: 0;
+}
+
+.signIn-title h1 {
+  color: black;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+
+.signIn-title p {
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.sign-in .form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.sign-in .form>.input-wrap {
+  position: relative;
+}
+
+.sign-in .form>.input-wrap>input {
+  background-color: whitesmoke;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  border: none;
+  /* border-radius: 8px; */
+  font-size: 12px;
+  margin: 10px 0;
+  padding: 13px 10px;
+  outline: none;
+  width: 300px;
+}
+
+.sign-in .form>.input-wrap>input:focus {
+  border: 1px solid black;
+}
+
+.sign-in .form>.input-wrap>img {
+  opacity: 0.7;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+.sign-in .form>button {
+  background-color: black;
+  border: none;
+  /* border-radius: 8px; */
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 10px 0;
+  outline: none;
+  height: 40px;
+  width: 50%;
+}
+
+.sign-in .form p {
+  color: red;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Sign In */
+
+/* Add Jobs */
+.add-jobs-wrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.add-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 18%;
+  padding-bottom: 80px;
+  max-width: 1220px;
+  width: 82%;
+}
+
+.right-wrap {
+  background-color: white;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  padding: 20px 0 20px 3%;
+  position: relative;
+  width: 93%;
+}
+
+.right-wrap .form {
+  width: 64%;
+}
+
+.right-wrap .form-head {
+  margin: 20px 0 40px 0;
+}
+
+.right-wrap .form-head h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.right-wrap .form-head p {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.right-wrap .form-content {
+  background-color: white;
+  /* box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: -20px; */
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 36%;
+}
+
+.right-wrap .form-content>.form-wrap {
+  padding: 20px 0;
+  height: 90%;
+  width: 90%;
+}
+
+.right-wrap h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+.right-wrap .form-long {
+  margin-top: 10px;
+}
+
+.right-wrap .form-short-wrap {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  margin-top: 10px;
+}
+
+.right-wrap .form-short-wrap .form-short {
+  width: 49%;
+}
+
+.right-wrap .form-short p,.right-wrap .form-long p{
+  color: red;  
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.right-wrap .form input,
+.right-wrap .form select,
+.right-wrap .form textarea {
+  background-color: white;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  border: none;
+  /* border-radius: 8px; */
+  font-size: 12px;
+  margin: 10px 0;
+  padding: 13px 10px;
+  outline: none;
+  width: 90%;
+}
+
+.right-wrap .form select {
+  width: 96%;
+}
+
+.right-wrap .form textarea {
+  height: 120px;
+  width: 93%;
+}
+
+.right-wrap .form input:focus,
+.right-wrap .form select:focus,
+.right-wrap .form textarea:focus {
+  border: 1px solid black;
+}
+
+.right-wrap .form button {
+  background-color: black;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  outline: none;
+  margin-top: -20px;
+  height: 40px;
+  width: 150px;
+}
+
+.form-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.form-content p {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.form-content p span {
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 850px)and (min-width: 650px) {
+  .add-right {
+    margin-left: 0;
+    max-width: 1220px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .add-right {
+    margin-left: 0;
+    max-width: 1220px;
+    width: 100%;
+  }
+
+  .right-wrap {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 15px;
+    padding: 20px 4% 80px 4%;
+    width: 86%;
+  }
+
+  .right-wrap .form {
+    width: 100%;
+  }
+
+  .right-wrap .form-head h2 {
+    font-size: 18px;
+  }
+
+  .right-wrap .form-head p {
+    font-size: 12px;
+  }
+
+  .right-wrap .form-content {
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    position: unset;
+    width: 100%;
+  }
+
+  .right-wrap .form-content>.form-wrap {
+    padding: 20px 0;
+    height: 90%;
+    width: 90%;
+  }
+
+  .right-wrap h4 {
+    font-size: 12px;
+  }
+
+  .right-wrap .form-short-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .right-wrap .form-short-wrap .form-short {
+    width: 100%;
+  }
+
+  .right-wrap .form button {
+    width: 150px;
+
+    position: absolute;
+    bottom: 20px;
+  }
+
+
+}
+
+/* Add Jobs */
+
+
+/* View Jobs */
+.view-jobs .right-wrap {
+  background-color: white;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  padding: 20px 2%;
+  position: relative;
+  width: 92%;
+}
+
+.jobs-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.job-card {
+  background-color: white;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 20px 0;
+  padding: 10px 0;
+  width: 32%;
+}
+
+.card-wrap {
+  position: relative;
+  width: 90%;
+}
+
+.job-card .title-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-card .title-wrap h3 {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  width: 80%;
+}
+
+.job-card .title-wrap p {
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0;
+  padding: 5px 1%;
+  width: 18%;
+  background-color: yellow;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.job-card .location {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.job-card .location img {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+.job-card .location h4 {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.job-card .location span {
+  font-size: 12px;
+}
+
+.job-card button {
+  background-color: white;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 35px;
+  width: 110px;
+}
+
+.pop-up {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 99;
+}
+
+.pop-up-box {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 95%;
+  width: 98%;
+}
+
+.pop-up-box .closeBtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 5px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.pop-up-box .closeBtn img {
+  height: 15px;
+  width: 15px;
+}
+
+.popup-wrap {
+  height: 90%;
+  width: 90%;
+}
+
+.popup-wrap .title-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.popup-wrap .title-wrap h3 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  /* width: 80%; */
+}
+
+.popup-wrap .title-wrap p {
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 20px;
+  padding: 5px 1%;
+  /* width: 18%; */
+  background-color: yellow;
+  text-align: center;
+}
+
+.popup-wrap .location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.popup-wrap .location img {
+  margin-right: 10px;
+  height: 22px;
+  width: 22px;
+}
+
+.popup-wrap .location h4 {
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.content-wrap {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0;
+}
+
+.content-wrap .location {
+  margin-top: 0;
+  margin-right: 20px;
+}
+
+.popup-wrap button {
+  background-color: transparent;
+  border: none;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  margin-top: 10px;
+  height: 40px;
+  width: 130px;
+}
+
+.popup-wrap button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.job-descrip {
+  margin-top: 70px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.job-descrip h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.job-descrip p {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: 850px)and (min-width: 650px) {
+  .job-card {
+    width: 49%;
   }
 }
+
+@media only screen and (max-width: 650px) {
+  .job-card {
+    width: 100%;
+  }
+}
+
+/* View Jobs */
+
+
+/* View Users */
+.users .right-wrap {
+  background-color: white;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  padding: 20px 2%;
+  position: relative;
+  width: 92%;
+}
+
+.user-cards {
+  width: 100%;
+}
+
+.user-card {
+  background-color: whitesmoke;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.user-wrap {
+  margin: 0 1.5%;
+  width: 20%;
+}
+
+.user-doc {
+  margin: 0 1.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 19%;
+}
+
+.user-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1.5%;
+  width: 5%;
+}
+
+.user-num h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+.user-wrap h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+.user-wrap p {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.user-doc button {
+  background-color: white;
+  border: none;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  height: 35px;
+  width: 100%;
+}
+
+.user-doc button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+
+@media only screen and (max-width: 650px) {
+
+  .user-wrap {
+    margin: 10px 3%;
+    width: 44%;
+  }
+
+  .user-doc {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10px 3%;
+    height: auto;
+    width: 44%;
+  }
+
+  .user-num {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 3% 5px 3%;
+    width: 94%;
+  }
+
+  .user-wrap h4 {
+    font-size: 14px;
+  }
+
+  .user-wrap p {
+    font-size: 13px;
+  }
+
+  .user-doc button {
+    font-size: 12px;
+    height: 35px;
+    width: 90%;
+  }
+}
+
+/* View Users */
