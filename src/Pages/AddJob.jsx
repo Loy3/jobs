@@ -4,6 +4,7 @@ import SideNav from "../Components/SideNav";
 import { Header } from "../Components/Header";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../Services/Firebase/firebaseConfig";
+import { Title } from "../Components/Components";
 // import { useNavigate } from "react-router-dom";
 
 function AddJob() {
@@ -59,7 +60,7 @@ function AddJob() {
 
 
         if (jobTitle && jobAddress && jobSalary && jobType && jobTiming && jobPeriod && jobLocation && jobClosingDate && jobDescription) {
-          
+
             addDoc(collection(db, 'jobs'), {
                 jobTitle: jobTitle,
                 jobAddress: jobAddress,
@@ -73,8 +74,8 @@ function AddJob() {
                 jobCreated: formattedDate
 
             })
-                // navigate("/jobs");
-                alert("Job Added.")
+            // navigate("/jobs");
+            alert("Job Added.")
         } else {
             if (!jobTitle) {
                 setJobTitleErr("Job title required.");
@@ -133,8 +134,11 @@ function AddJob() {
 
                 <div className="add-right">
                     <Header title={"Add Job"} text={"Complete the form below."} />
-
+                    <div id="title">
+                            <Title title={"Add Job"} text={"Complete the form below."} />
+                        </div>
                     <div className="right-wrap">
+                        
                         <div className="form">
                             <div className="form-head">
                                 <h2>Job Description:</h2>

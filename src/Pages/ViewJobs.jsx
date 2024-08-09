@@ -4,18 +4,22 @@ import SideNav from "../Components/SideNav";
 import locationIcn from "../Assets/Icons/location.png";
 import calenderIcn from "../Assets/Icons/calendar.png";
 import moneyIcn from "../Assets/Icons/money.png";
+import timeIcn from "../Assets/Icons/clock.png";
 
+import menuIcn from "../Assets/Icons/dots.png";
 import closeIcn from "../Assets/Icons/close.png";
 import { useEffect, useState } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import { db } from "../Services/Firebase/firebaseConfig";
 import { ReturnFormattedDate, HandleColor } from "../Services/Functions";
+import { Title } from "../Components/Components";
 
 function ViewJobs() {
 
     const [jobs, setJobs] = useState([]);
     const [job, setJob] = useState(null);
     const [popupStatus, setPopupStatus] = useState(false);
+    const [menuStatus, setMenuStatus] = useState(false);
 
     const fetchData = (async () => {
 
@@ -29,7 +33,7 @@ function ViewJobs() {
                 snapshot.forEach((doc) => {
                     jbs.push({ id: doc.id, ...doc.data() });
                 });
-                console.log(jbs);
+                // console.log(jbs);
                 setJobs(jbs);
                 setJob(jbs[0]);
             } else {
@@ -42,9 +46,50 @@ function ViewJobs() {
     useEffect(() => {
         fetchData();
     }, [])
+
     function handlePopup(jb) {
         setJob(jb);
         setPopupStatus(true);
+    }
+
+    function handleMenu(type) {
+        const menu = document.getElementById("menuOpt");
+        switch (type) {
+            case "open":
+                setMenuStatus(true);
+                menu.style.display = "flex";
+                break;
+            default:
+                setMenuStatus(false);
+                menu.style.display = "none";
+                break;
+        }
+
+    }
+
+    async function handleJob(type, id) {
+        const menu = document.getElementById("menuOpt");
+
+        switch (type) {
+            case "update":
+                console.log("update");
+                setMenuStatus(false);
+                menu.style.display = "none";
+                break;
+
+            case "delete":
+                await deleteDoc(doc(db, "jobs", id)).then(() => {
+                    setMenuStatus(false);
+                    menu.style.display = "none";
+                    setPopupStatus(false)
+                })
+                break;
+            default:
+                setMenuStatus(false);
+                menu.style.display = "none";
+                setPopupStatus(false)
+                break;
+        }
     }
 
     return (
@@ -54,7 +99,11 @@ function ViewJobs() {
 
                 <div className="add-right">
                     <Header title={"View Jobs"} text={"See all the jobs added."} />
+                    <div id="title">
+                        <Title title={"View Jobs"} text={"See all the jobs added."} />
+                    </div>
                     <div className="right-wrap">
+
                         <div className="jobs-cards">
 
                             {jobs.map((job, index) => (
@@ -62,7 +111,7 @@ function ViewJobs() {
                                     <div className="card-wrap">
                                         <div className="title-wrap">
                                             <h3>{job.jobTitle}</h3>
-                                            <p style={{backgroundColor: `${HandleColor(job.jobLocation)}`}}>{job.jobLocation}</p>
+                                            <p style={{ backgroundColor: `${HandleColor(job.jobLocation)}` }}>{job.jobLocation}</p>
                                         </div>
                                         <div className="location">
                                             <img src={locationIcn} alt="" />
@@ -89,11 +138,20 @@ function ViewJobs() {
                                 <div className="pop-up">
                                     {/* jobTitle && jobAddress && jobSalary && jobType && jobTiming && jobPeriod && jobLocation && jobClosingDate && jobDescription */}
                                     <div className="pop-up-box">
-                                        <button className="closeBtn" onClick={() => setPopupStatus(false)}><img src={closeIcn} alt="" /></button>
+                                        {!menuStatus ?
+                                            <button className="menuBTN" onClick={() => handleMenu("open")}><img id="menuIcon" src={menuIcn} alt="" /></button>
+                                            :
+                                            <button className="closeBtn" onClick={() => handleMenu("close")}><img id="menuIcon" src={closeIcn} alt="" /></button>
+                                        }
+                                        <div className="menu-option" id="menuOpt">
+                                            <button onClick={() => handleJob("update", job.id)}>Edit</button>
+                                            <button onClick={() => handleJob("delete", job.id)}>Delete</button>
+                                            <button onClick={() => handleJob("close", "")}>Close</button>
+                                        </div>
                                         <div className="popup-wrap">
                                             <div className="title-wrap">
                                                 <h3>{job.jobTitle}</h3>
-                                                <p style={{backgroundColor: `${HandleColor(job.jobLocation)}`}}>{job.jobLocation}</p>
+                                                <p style={{ backgroundColor: `${HandleColor(job.jobLocation)}` }}>{job.jobLocation}</p>
                                             </div>
 
                                             <div className="location">
@@ -108,7 +166,7 @@ function ViewJobs() {
                                                     <h4>{ReturnFormattedDate(job.jobClosingDate)}</h4>
                                                 </div>
                                                 <div className="location">
-                                                    <img src={calenderIcn} alt="" />
+                                                    <img src={timeIcn} alt="" />
                                                     <h4>{job.jobTiming}</h4>
                                                 </div>
                                             </div>

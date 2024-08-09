@@ -184,7 +184,7 @@ body {
   }
 
   #sideNav {
-    display: flex;
+    display: none;
   }
 
   .side-nav-close {
@@ -269,6 +269,12 @@ body {
   width: 100%;
 }
 
+#title {
+  margin: 20px 0;
+  display: none;
+}
+
+
 .title {
   margin: 0;
 }
@@ -296,6 +302,68 @@ body {
   flex-direction: row;
 }
 
+.dashboard-wrap .add-right {
+  margin-left: 18%;
+  padding-bottom: 0;
+}
+
+.dash-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 20px;
+  right: 3%;
+}
+
+.dash-title {
+  margin: 20px 0;
+  width: 94%;
+}
+
+.dash-main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  width: 96%;
+}
+
+.dash-top {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.dash-top img {
+  object-fit: cover;
+  height: 35vh;
+  width: 100%;
+}
+
+.left-time {
+  /* background-color: rgba(245, 245, 245, 0.473); */
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px 20px;
+
+}
+
+.left-time h2 {
+  color: whitesmoke;
+  font-size: 40px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.dash-btm {
+
+  width: 100%;
+}
+
 @media only screen and (max-width: 850px) and (min-width: 650px) {
   .head-loc {
     left: 20px;
@@ -313,11 +381,40 @@ body {
     position: absolute;
     display: none;
   }
+  .dashboard-wrap .add-right {
+    margin-left: 0;
+    padding-bottom: 0;
+    
+  }
+
+  .dash-title {
+    display: none;
+  }
+
+  #title {
+    margin: 10px 0 0 0;
+    padding: 20px;
+    display: block;
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.5); */
+  }
 
   .title h1 {
     font-size: 28px;
+    text-align: center;
   }
 
+  .dash-head {
+    margin: 0;
+    top: 20px;
+    right: 20px;
+  }
+
+  .dash-main {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    width: 96%;
+  }
 
   .head-right {
 
@@ -364,6 +461,7 @@ body {
   font-weight: bold;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 
@@ -373,6 +471,7 @@ body {
   font-weight: 400;
   margin: 5px 0;
   padding: 0;
+  text-align: center;
 }
 
 .sign-in .form {
@@ -418,7 +517,7 @@ body {
   cursor: pointer;
   font-size: 12px;
   font-weight: 400;
-  margin: 10px 0;
+  margin: 10px 25%;
   outline: none;
   height: 40px;
   width: 50%;
@@ -527,8 +626,9 @@ body {
   width: 49%;
 }
 
-.right-wrap .form-short p,.right-wrap .form-long p{
-  color: red;  
+.right-wrap .form-short p,
+.right-wrap .form-long p {
+  color: red;
   font-size: 12px;
   margin: 0;
   padding: 0;
@@ -696,9 +796,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0.6% 20px 0.6%;
-  padding: 10px 0;
-  width: 32%;
+  margin: 0.9%;
+  padding: 15px 0;
+  width: 31%;
 }
 
 .card-wrap {
@@ -765,8 +865,8 @@ body {
   font-weight: 600;
   outline: none;
   position: absolute;
-  right: -22px;
-  bottom: -5px;
+  right: -25px;
+  bottom: -7px;
   height: 35px;
   width: 100px;
 }
@@ -791,8 +891,9 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 95%;
-  width: 98%;
+  max-width: 1220px;
+  height: 80%;
+  width: 70%;
 }
 
 .pop-up-box .closeBtn {
@@ -806,10 +907,56 @@ body {
   right: 10px;
 }
 
+.pop-up-box .menuBTN {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 5px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#menuOpt {
+  display: none;
+}
+
+.menu-option {
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+
+}
+
+.menu-option button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 5px;
+  text-align: right;
+  width: 100px;
+}
+
+.menu-option button:hover {
+  font-weight: 600;
+
+}
+
 .pop-up-box .closeBtn img {
   height: 15px;
   width: 15px;
 }
+
+.pop-up-box .menuBTN img {
+  height: 30px;
+  width: 30px;
+}
+
 
 .popup-wrap {
   height: 90%;
@@ -910,15 +1057,44 @@ body {
   padding: 0;
 }
 
+
+@media only screen and (max-width: 1100px)and (min-width: 850px) {
+  .pop-up-box {
+    height: 80%;
+    width: 80%;
+  }
+}
+
 @media only screen and (max-width: 850px)and (min-width: 650px) {
   .job-card {
     width: 49%;
+  }
+
+  .pop-up-box {
+    height: 70%;
+    width: 80%;
   }
 }
 
 @media only screen and (max-width: 650px) {
   .job-card {
+    width: 98%;
+  }
+
+  .pop-up-box {
+    height: 100%;
     width: 100%;
+  }
+  .menu-option {
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+  background-color: white;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  z-index: 99;
   }
 }
 

@@ -1,3 +1,4 @@
+import { Title } from "../Components/Components";
 import { Header } from "../Components/Header";
 import SideNav from "../Components/SideNav";
 
@@ -9,6 +10,9 @@ function ViewUsers() {
 
                 <div className="add-right">
                     <Header title={"View Users"} text={"See all users who signed up."} />
+                    <div id="title">
+                            <Title title={"View Users"} text={"See all users who signed up."} />
+                        </div>
                     <div className="right-wrap">
                         <div className="user-cards">
                             <div className="user-card">
