@@ -686,7 +686,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: flex-start; */
   width: 100%;
 }
 
@@ -696,7 +696,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0 20px 0;
+  margin: 0 0.6% 20px 0.6%;
   padding: 10px 0;
   width: 32%;
 }
@@ -727,7 +727,7 @@ body {
   margin: 0;
   padding: 5px 1%;
   width: 18%;
-  background-color: yellow;
+  /* background-color: yellow; */
   text-align: center;
 }
 
@@ -765,10 +765,10 @@ body {
   font-weight: 600;
   outline: none;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: -22px;
+  bottom: -5px;
   height: 35px;
-  width: 110px;
+  width: 100px;
 }
 
 .pop-up {

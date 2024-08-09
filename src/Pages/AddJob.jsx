@@ -4,10 +4,10 @@ import SideNav from "../Components/SideNav";
 import { Header } from "../Components/Header";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../Services/Firebase/firebaseConfig";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function AddJob() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const formattedDate = FormattedDate();
     const [minDate, setMinDate] = useState("");
 
@@ -72,10 +72,9 @@ function AddJob() {
                 jobDescription: jobDescription,
                 jobCreated: formattedDate
 
-            }).then(() => {
+            })
                 // navigate("/jobs");
                 alert("Job Added.")
-            })
         } else {
             if (!jobTitle) {
                 setJobTitleErr("Job title required.");
@@ -158,7 +157,7 @@ function AddJob() {
                             <div className="form-short-wrap">
                                 <div className="form-short">
                                     <h4>Salary Expectation:</h4>
-                                    <input type="text" placeholder="Enter salary per month:" onChange={(e) => setJobSalary(e.target.value)} />
+                                    <input type="number" placeholder="Enter salary per month:" onChange={(e) => setJobSalary(e.target.value)} />
                                     <p>{jobSalaryErr}</p>
                                 </div>
                                 <div className="form-short">
@@ -178,6 +177,7 @@ function AddJob() {
                                         </option>
                                         <option value={"Accounting"}>Accounting</option>
                                         <option value={"Business"}>Business</option>
+                                        <option value={"Design"}>Design</option>
                                         <option value={"Education"}>Education</option>
                                         <option value={"Engineering"}>Engineering</option>
                                         <option value={"Healt & Safety"}>Healt & Safety</option>

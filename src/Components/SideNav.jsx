@@ -7,6 +7,8 @@ import menuIcn from "../Assets/Icons/menu.png";
 import closeIcn from "../Assets/Icons/close.png";
 
 import { useNavigate } from 'react-router-dom';
+import { auth } from "../Services/Firebase/firebaseConfig";
+import { signOut } from "firebase/auth";
 
 function SideNav() {
     const navigate = useNavigate();
@@ -24,6 +26,10 @@ function SideNav() {
                 break;
             case "users":
                 navigate("/users");
+                break;
+            case "signOut":
+                signOut(auth);
+                navigate("/");
                 break;
             default:
                 break;
@@ -66,7 +72,7 @@ function SideNav() {
                 </div>
 
                 <div className="nav-sign-out">
-                    <button><img src={signOutIcn} alt="signOut" />Sign Out</button>
+                    <button onClick={() => handleNavigation("signOut")}><img src={signOutIcn} alt="signOut" />Sign Out</button>
                 </div>
             </div>
         </>
