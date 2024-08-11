@@ -381,10 +381,11 @@ body {
     position: absolute;
     display: none;
   }
+
   .dashboard-wrap .add-right {
     margin-left: 0;
     padding-bottom: 0;
-    
+
   }
 
   .dash-title {
@@ -564,6 +565,11 @@ body {
 
 .right-wrap .form {
   width: 64%;
+}
+
+.update-wrap .form{
+  padding-bottom: 40px;
+  width: 100%;
 }
 
 .right-wrap .form-head {
@@ -896,7 +902,20 @@ body {
   width: 70%;
 }
 
-.pop-up-box .closeBtn {
+.up-pop-up-box {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 1220px;
+  overflow-y: auto;
+  height: 90%;
+  width: 50%;
+}
+
+.pop-up-box .closeBtn,
+.up-pop-up-box .closeBtn {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -947,7 +966,8 @@ body {
 
 }
 
-.pop-up-box .closeBtn img {
+.pop-up-box .closeBtn img,
+.up-pop-up-box .closeBtn img {
   height: 15px;
   width: 15px;
 }
@@ -959,6 +979,11 @@ body {
 
 
 .popup-wrap {
+  height: 90%;
+  width: 90%;
+}
+
+.update-wrap {
   height: 90%;
   width: 90%;
 }
@@ -1085,6 +1110,7 @@ body {
     height: 100%;
     width: 100%;
   }
+
   .menu-option {
     align-items: flex-start;
     justify-content: flex-start;
@@ -1092,9 +1118,9 @@ body {
     position: absolute;
     top: 50px;
     right: 20px;
-  background-color: white;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
-  z-index: 99;
+    background-color: white;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    z-index: 99;
   }
 }
 

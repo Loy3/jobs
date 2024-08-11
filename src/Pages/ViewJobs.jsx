@@ -13,6 +13,7 @@ import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import { db } from "../Services/Firebase/firebaseConfig";
 import { ReturnFormattedDate, HandleColor } from "../Services/Functions";
 import { Title } from "../Components/Components";
+import { UpdatePopUp } from "../Components/PopUp";
 
 function ViewJobs() {
 
@@ -20,6 +21,7 @@ function ViewJobs() {
     const [job, setJob] = useState(null);
     const [popupStatus, setPopupStatus] = useState(false);
     const [menuStatus, setMenuStatus] = useState(false);
+    const [updateJobStatus, setUpdateJobStatus] = useState(false);
 
     const fetchData = (async () => {
 
@@ -75,6 +77,7 @@ function ViewJobs() {
                 console.log("update");
                 setMenuStatus(false);
                 menu.style.display = "none";
+                setUpdateJobStatus(true);
                 break;
 
             case "delete":
@@ -137,57 +140,73 @@ function ViewJobs() {
                             {popupStatus ?
                                 <div className="pop-up">
                                     {/* jobTitle && jobAddress && jobSalary && jobType && jobTiming && jobPeriod && jobLocation && jobClosingDate && jobDescription */}
-                                    <div className="pop-up-box">
-                                        {!menuStatus ?
-                                            <button className="menuBTN" onClick={() => handleMenu("open")}><img id="menuIcon" src={menuIcn} alt="" /></button>
-                                            :
-                                            <button className="closeBtn" onClick={() => handleMenu("close")}><img id="menuIcon" src={closeIcn} alt="" /></button>
-                                        }
-                                        <div className="menu-option" id="menuOpt">
-                                            <button onClick={() => handleJob("update", job.id)}>Edit</button>
-                                            <button onClick={() => handleJob("delete", job.id)}>Delete</button>
-                                            <button onClick={() => handleJob("close", "")}>Close</button>
+                                    {updateJobStatus
+                                        ?
+                                        <div className="up-pop-up-box">
+                                            <button className="closeBtn" onClick={() => setUpdateJobStatus(false)}><img id="menuIcon" src={closeIcn} alt="" /></button>
+                                            <UpdatePopUp job={job} setUpdateJobStatus={setUpdateJobStatus} setMenuStatus={setMenuStatus} setPopupStatus={setPopupStatus} />
                                         </div>
-                                        <div className="popup-wrap">
-                                            <div className="title-wrap">
-                                                <h3>{job.jobTitle}</h3>
-                                                <p style={{ backgroundColor: `${HandleColor(job.jobLocation)}` }}>{job.jobLocation}</p>
+                                        :
+                                        <div className="pop-up-box">
+
+
+                                            <>
+                                                {!menuStatus ?
+                                                    <button className="menuBTN" onClick={() => handleMenu("open")}><img id="menuIcon" src={menuIcn} alt="" /></button>
+                                                    :
+                                                    <button className="closeBtn" onClick={() => handleMenu("close")}><img id="menuIcon" src={closeIcn} alt="" /></button>
+                                                }
+                                            </>
+
+                                            <div className="menu-option" id="menuOpt">
+                                                <button onClick={() => handleJob("update", job.id)}>Edit</button>
+                                                <button onClick={() => handleJob("delete", job.id)}>Delete</button>
+                                                <button onClick={() => handleJob("close", "")}>Close</button>
                                             </div>
 
-                                            <div className="location">
-                                                <img src={locationIcn} alt="" />
-                                                <h4>{job.jobAddress}</h4>
+                                            <div className="popup-wrap">
+
+
+
+                                                <>
+                                                    <div className="title-wrap">
+                                                        <h3>{job.jobTitle}</h3>
+                                                        <p style={{ backgroundColor: `${HandleColor(job.jobLocation)}` }}>{job.jobLocation}</p>
+                                                    </div>
+
+                                                    <div className="location">
+                                                        <img src={locationIcn} alt="" />
+                                                        <h4>{job.jobAddress}</h4>
+                                                    </div>
+
+
+                                                    <div className="content-wrap">
+                                                        <div className="location">
+                                                            <img src={calenderIcn} alt="" />
+                                                            <h4>{ReturnFormattedDate(job.jobClosingDate)}</h4>
+                                                        </div>
+                                                        <div className="location">
+                                                            <img src={timeIcn} alt="" />
+                                                            <h4>{job.jobTiming}</h4>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="content-wrap">
+                                                        <div className="location">
+                                                            <img src={moneyIcn} alt="" />
+                                                            <h4>R{job.jobSalary}.<span>00</span></h4>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="job-descrip">
+                                                        <h4>Job Description</h4>
+                                                        <p>{job.jobDescription}</p>
+                                                    </div>
+                                                </>
+
                                             </div>
-
-
-                                            <div className="content-wrap">
-                                                <div className="location">
-                                                    <img src={calenderIcn} alt="" />
-                                                    <h4>{ReturnFormattedDate(job.jobClosingDate)}</h4>
-                                                </div>
-                                                <div className="location">
-                                                    <img src={timeIcn} alt="" />
-                                                    <h4>{job.jobTiming}</h4>
-                                                </div>
-                                            </div>
-
-                                            <div className="content-wrap">
-                                                <div className="location">
-                                                    <img src={moneyIcn} alt="" />
-                                                    <h4>R{job.jobSalary}.<span>00</span></h4>
-                                                </div>
-                                            </div>
-                                            {/* <button>Apply</button> */}
-
-                                            <div className="job-descrip">
-                                                <h4>Job Description</h4>
-                                                <p>{job.jobDescription}</p>
-
-                                                {/* <button>Apply</button> */}
-                                            </div>
-
                                         </div>
-                                    </div>
+                                    }
                                 </div>
                                 : null
                             }
