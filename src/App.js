@@ -7,6 +7,7 @@ import ViewJobs from './Pages/ViewJobs';
 import ViewUsers from './Pages/ViewUsers';
 import { useEffect, useState } from 'react';
 import { auth } from './Services/Firebase/firebaseConfig';
+import AppliedJobs from './Pages/AppliedJobs';
 
 function App() {
   const [isSignedin, setIsSignedin] = useState(false);
@@ -48,7 +49,7 @@ function App() {
           <Route path='/add' element={isSignedin ? <AddJob /> : <Navigate to="/" />} />
           <Route path='/jobs' element={isSignedin ? <ViewJobs /> : <Navigate to="/" />} />
           <Route path='/users' element={isSignedin ? <ViewUsers /> : <Navigate to="/" />} />
-
+          <Route path='/applied' element={isSignedin ? <AppliedJobs /> : <Navigate to="/" />} />
           
           {/* <Route path='/signin' element={isSignedin ? <Navigate to="/" /> : <SignInPage setIsSignedin={setIsSignedin} />} /> */}
 

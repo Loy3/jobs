@@ -567,7 +567,7 @@ body {
   width: 64%;
 }
 
-.update-wrap .form{
+.update-wrap .form {
   padding-bottom: 40px;
   width: 100%;
 }
@@ -1214,6 +1214,16 @@ body {
   color: white;
 }
 
+.user-doc button a {
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+}
+
+.user-doc button a:hover {
+  color: white;
+  height: 100%;
+  width: 100%;
+}
 
 @media only screen and (max-width: 650px) {
 

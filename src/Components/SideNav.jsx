@@ -2,6 +2,7 @@ import dashIcn from "../Assets/Icons/dashboard.png";
 import addIcn from "../Assets/Icons/add.png";
 import jobsIcn from "../Assets/Icons/briefcase.png";
 import usersIcn from "../Assets/Icons/users.png";
+import applyIcn from "../Assets/Icons/job-apply.png";
 import signOutIcn from "../Assets/Icons/sign-out.png";
 import menuIcn from "../Assets/Icons/menu.png";
 import closeIcn from "../Assets/Icons/close.png";
@@ -26,6 +27,9 @@ function SideNav() {
                 break;
             case "users":
                 navigate("/users");
+                break;
+            case "applied":
+                navigate("/applied");
                 break;
             case "signOut":
                 signOut(auth);
@@ -69,6 +73,7 @@ function SideNav() {
                     <button onClick={() => handleNavigation("add")}><div className="btn-img"><img src={addIcn} alt="dashboard" /></div> Add Job</button>
                     <button onClick={() => handleNavigation("jobs")}><div className="btn-img"><img src={jobsIcn} alt="dashboard" /></div> View Jobs</button>
                     <button onClick={() => handleNavigation("users")}><div className="btn-img"><img src={usersIcn} alt="dashboard" /></div> View Users</button>
+                    <button onClick={() => handleNavigation("applied")}><div className="btn-img"><img src={applyIcn} alt="dashboard" /></div> Applied Jobs</button>
                 </div>
 
                 <div className="nav-sign-out">

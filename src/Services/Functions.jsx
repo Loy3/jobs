@@ -43,3 +43,14 @@ export const HandleColor = (type) => {
     }
     return color;
 }
+
+export const FormatPhoneNumber=(phoneNumber)=> {
+    const cleaned = ('' + phoneNumber).replace(/\D/g, '');
+
+    if (cleaned.startsWith('0')) {
+        const formatted = `+27 ${cleaned.slice(1, 3)} ${cleaned.slice(3, 6)} ${cleaned.slice(6)}`;
+        return formatted;
+    }
+
+    return phoneNumber;
+};

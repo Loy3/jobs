@@ -5,10 +5,10 @@ import { Header } from "../Components/Header";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../Services/Firebase/firebaseConfig";
 import { Title } from "../Components/Components";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function AddJob() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const formattedDate = FormattedDate();
     const [minDate, setMinDate] = useState("");
 
@@ -74,8 +74,9 @@ function AddJob() {
                 jobCreated: formattedDate
 
             })
-            // navigate("/jobs");
-            alert("Job Added.")
+           
+            alert("Job Added.");
+             navigate("/jobs");
         } else {
             if (!jobTitle) {
                 setJobTitleErr("Job title required.");

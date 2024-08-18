@@ -36,8 +36,9 @@ function ViewJobs() {
                     jbs.push({ id: doc.id, ...doc.data() });
                 });
                 // console.log(jbs);
-                setJobs(jbs);
-                setJob(jbs[0]);
+                const sortedData = jbs.sort((a, b) => new Date(b.jobCreated) - new Date(a.jobCreated));
+                setJobs(sortedData);
+                setJob(sortedData[0]);
             } else {
                 // setNewAddItem(null);
             }
