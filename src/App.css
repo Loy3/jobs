@@ -286,6 +286,13 @@ body {
   padding: 0;
 }
 
+.title h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
 .title p {
   /* color: rgba(0, 0, 0, 0.5); */
   font-size: 14px;
@@ -558,6 +565,7 @@ body {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 20px 0 20px 3%;
   position: relative;
   width: 93%;
@@ -902,6 +910,19 @@ body {
   width: 70%;
 }
 
+.pop-up-box .close-pop {
+  background-color: transparent;
+  border: none;
+  /* box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5); */
+  color: black;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .up-pop-up-box {
   background-color: white;
   display: flex;
@@ -1150,6 +1171,7 @@ body {
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 10px;
   padding: 10px 0;
   width: 100%;
 }
@@ -1265,3 +1287,29 @@ body {
 }
 
 /* View Users */
+
+/* view applications */
+#apply .pop-up-box {
+  /* background-color: yellow; */
+  margin-top: 20px;
+  height: auto;
+  width: 96%;
+}
+
+#apply .popup-wrap {
+  height: auto;
+  width: 100%;
+}
+
+.app-users {
+  margin-top: 50px;
+}
+
+.user-cont {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.app-users .user-cards {
+  margin-top: 30px;
+}
