@@ -22,8 +22,6 @@ function AppliedJobs() {
                 for (const doc of snapshot.docs) {
                     const docs = await checkForCollection(doc.id);
                     if (docs.length > 0) {
-                        // console.log("docs",docs);
-
                         jbs.push({ id: doc.id, ...doc.data(), docs: [...docs] });
                     }
                 }

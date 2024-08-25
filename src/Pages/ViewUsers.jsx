@@ -22,7 +22,7 @@ function ViewUsers() {
                     usrs.push({ id: doc.id, ...doc.data() });
                 });
                 // console.log(usrs);
-                const sortedData = usrs.sort((a, b) => new Date(b.jobCreated) - new Date(a.jobCreated));
+                const sortedData = usrs.sort((a, b) => new Date(b.date) - new Date(a.date));
                 setUsers(sortedData);
                 // setJob(sortedData[0]);
             } else {

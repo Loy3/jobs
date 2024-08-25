@@ -9,7 +9,7 @@ import afternoonImg from "../Assets/Images/Day/2.jpg";
 import nightImg from "../Assets/Images/Day/3.jpg";
 import { FormattedDate } from "../Services/Functions";
 
-function Dashboard() {
+function Dashboard(props) {
     const [cardImage, setCardImage] = useState(defaultImg);
     const formattedDate = FormattedDate();
     const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }));

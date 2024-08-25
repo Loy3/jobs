@@ -64,7 +64,7 @@ function SideNav() {
                     <button onClick={() => handleMenu("close")}><img src={closeIcn} alt="menu" /></button>
                 </div>
                 <div className="nav-logo">
-                    <h1>logo.</h1>
+                    <h1>StheJobs.</h1>
                 </div>
 
                 <div className="nav-routes">

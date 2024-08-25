@@ -1143,6 +1143,11 @@ body {
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
     z-index: 99;
   }
+
+  .pop-up-box .close-pop {
+    top: -10px;
+    right: -10px;
+  }
 }
 
 /* View Jobs */

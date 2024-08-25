@@ -1,5 +1,5 @@
 
-import { FormatPhoneNumber, HandleColor, ReturnFormattedDate } from "../Services/Functions";
+import {  HandleColor, ReturnFormattedDate } from "../Services/Functions";
 
 import locationIcn from "../Assets/Icons/location.png";
 import calenderIcn from "../Assets/Icons/calendar.png";
@@ -25,6 +25,7 @@ export const Applicants = (props) => {
             }
         }
         const sortedData = usrs.sort((a, b) => new Date(a.date) - new Date(b.date));
+
         setUsers(sortedData);
     }, [job])
 
@@ -37,6 +38,7 @@ export const Applicants = (props) => {
             userDoc = { id: docSnap.id, ...docSnap.data(), date: date };
         }
 
+        
         return userDoc;
     }
 
@@ -98,8 +100,8 @@ export const Applicants = (props) => {
                                         <p>{user.emailAddress}</p>
                                     </div>
                                     <div className="user-wrap">
-                                        <h4>Phone Number:</h4>
-                                        <p>{FormatPhoneNumber(user.phoneNum)}</p>
+                                        <h4>Applied:</h4>
+                                        <p>{user.date}</p>
                                     </div>
                                     <div className="user-doc">
                                         {/* <button>Download CV</button> */}
